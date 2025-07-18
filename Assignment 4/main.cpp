@@ -56,7 +56,7 @@ int main() {
 
     subStrIndex = firstPhrase.find(secondPhrase);
     
-    if(subStrIndex == -1){
+    if(subStrIndex == string::npos){
         subStrIndex = secondPhrase.find(firstPhrase);
         if(subStrIndex > 0){
             subPhrase = firstPhrase;
