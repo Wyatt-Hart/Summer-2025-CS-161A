@@ -115,15 +115,6 @@ void doStats(int num)
 
     cout << "The minimum number entered was " << minNum << " enetered in position " << minPosition << "." << endl;
     cout << "The maximum number entered was " << maxNum << " enetered in position " << maxPosition << "." << endl;
-    
-
-    //If the user enters a negative number or 0, print an error, and then prompt for the number again. Be careful - you will need to adjust the counter variable in the for loop!
-
-
-    //After the positive integers have been entered, list the minimum and maximum integers entered and the first occurance of the position they were entered (1, 2, 3, 4, 5, etc). For example, if the user enters 4, 4, 5, 4, the minimum number is 4, and it was entered in position 1.
-
-
-    //Do not store all of the numbers, only the minimum, maximum, and the positions they were entered in.
 
     return;
 }
@@ -140,16 +131,19 @@ Data analysis is important in business to understand problems facing an organiza
 Design:
 A. INPUT
 Define the input variables including name data type. 
-
+int numIntegers
+int num
 
 B. OUTPUT
 Define the output variables including data types. 
-
+int minNum, minPosition, maxNum, maxPosition
 
 C. CALCULATIONS
 Describe calculations used by algorithms in step D.  
 List all formulas. 
 If there are no calculations needed, state there are no calculations.
+no calculations
+
 no calculations
 
 
@@ -159,20 +153,102 @@ Use conditionals, loops, functions or array constructs.
 List the steps in transforming inputs into outputs. 
 https://github.com/Glen-Sasek-PCC-Instructor/2025-06-22/blob/main/Pseudocode-Reference.txt
 
-DISPLAY
-DECLARE
-INPUT
-SET
+
+DECLARE numIntegers
+
+DISPLAY "Welcome to my Final Exam Practice."
+
+
+DECLARE num
+DISPLAY "How many positive integers do you want to process? "
+INPUT num;
+
+if(num <= 0)
+    DISPLAY "No integers were entered."
+else
+    DECLARE input, minPosition, maxPosition
+    DECLARE minNum = 0
+    int maxNum = 0
+
+    for(int i = 1; i <= num; i++){
+
+        DISPLAY "Enter integer #" + i + ": "
+
+        INPUT input
+        if(input <= 0){
+            i--
+            DISPLAY "Enter a positive integer!"
+        } else {
+            if(i == 1){
+                SET minNum = input;
+                SET minPosition = i;
+                SET maxNum = input;
+                SET maxPosition = i;
+            } else if(input < minNum){
+                SET minNum = input;
+                SET minPosition = i;
+            } else if(input > maxNum){
+                SET maxNum = input;
+                SET maxPosition = i;
+            }
+        }
+    }
+
+    DISPLAY "The minimum number entered was " + minNum + " enetered in position " + minPosition + "."
+    DISPLAY "The maximum number entered was " + maxNum + " enetered in position " + maxPosition + "."
+
+DISPLAY "Thank you for using my program."
 
 SAMPLE RUNS
 ///////////Sample Run 1///////////
-
+Welcome to my Final Exam Practice.
+How many positive integers do you want to process? 0
+No integers were entered.
+Thank you for using my program.
 //////////////////////////////////
 ///////////Sample Run 2///////////
-
+Welcome to my Final Exam Practice.
+How many positive integers do you want to process? -9
+No integers were entered.
+Thank you for using my program.
 //////////////////////////////////
 ///////////Sample Run 3///////////
-
+Welcome to my Final Exam Practice.
+How many positive integers do you want to process? 3
+Enter integer #1: 1
+Enter integer #2: 2
+Enter integer #3: 3
+The minimum number entered was 1 entered in position 1.
+The maximum number entered was 3 entered in position 3.
+Thank you for using my program.
+//////////////////////////////////
+///////////Sample Run 4///////////
+How many positive integers do you want to process? 4
+Enter integer #1: 2
+Enter integer #2: 2
+Enter integer #3: 2
+Enter integer #4: 2
+The minimum number entered was 2 entered in position 1.
+The maximum number entered was 2 entered in position 1.
+Thank you for using my program.
+//////////////////////////////////
+///////////Sample Run 5///////////
+How many positive integers do you want to process? 4
+Enter integer #1: 10
+Enter integer #2: -9
+Enter a positive integer!
+Enter integer #2: 0
+Enter a positive integer!
+Enter integer #2: -3
+Enter a positive integer!
+Enter integer #2: 4
+Enter integer #3: 3
+Enter integer #4: -9
+Enter a positive integer!
+Enter integer #4: 5
+The minimum number entered was 3 entered in position 3.
+The maximum number entered was 10 entered in position 1.
+Thank you for using my program.
 //////////////////////////////////
 
 */
